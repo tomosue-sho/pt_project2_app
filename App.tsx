@@ -14,6 +14,19 @@ import QuizUserAnswerList from './components/QuizUserAnswerList';
 import BookmarkList from './components/BookmarkList';
 import InquiryList from './components/InquiryList';
 import InquiryReplyList from './components/InquiryReplyList';
+import QuestionRangeList from './components/QuestionRangeList';
+import ExplanationImageList from './components/ExplanationImageList';
+import LearningMaterialList from './components/LearningMaterialList';
+import LevelUpScoreList from './components/LevelUpScoreList';
+import ListQuestionList from './components/ListQuestionList';
+import ListAnswerList from './components/ListAnswerList';
+import ListQuestionCategoryList from './components/ListQuestionCategoryList';
+import PDFCategoryList from './components/PDFCategoryList';
+import PDFDocumentList from './components/PDFDocumentList';
+import PostConsultationList from './components/PostConsultationList';
+import ReplyConsultationList from './components/ReplyConsultationList';
+import CategoryConsultationList from './components/CategoryConsultationList';
+import PracticalQuizQuestionList from './components/PracticalQuizQuestionList';
 
 const App = () => {
   const sections = [
@@ -31,6 +44,19 @@ const App = () => {
     { key: 'Bookmarks', component: <BookmarkList /> },
     { key: 'Inquiries', component: <InquiryList /> },
     { key: 'Inquiry Replies', component: <InquiryReplyList /> },
+    { key: 'Question Ranges', component: <QuestionRangeList /> },
+    { key: 'Explanation Images', component: <ExplanationImageList /> },
+    { key: 'Learning Materials', component: <LearningMaterialList /> },
+    { key: 'Level Up Scores', component: <LevelUpScoreList /> },
+    { key: 'List Questions', component: <ListQuestionList /> },
+    { key: 'List Answers', component: <ListAnswerList /> },
+    { key: 'List Question Categories', component: <ListQuestionCategoryList /> },
+    { key: 'PDF Categories', component: <PDFCategoryList /> },
+    { key: 'PDF Documents', component: <PDFDocumentList /> },
+    { key: 'Post Consultations', component: <PostConsultationList /> },
+    { key: 'Reply Consultations', component: <ReplyConsultationList /> },
+    { key: 'Category Consultations', component: <CategoryConsultationList /> },
+    { key: 'Practical Quiz Questions', component: <PracticalQuizQuestionList /> },
   ];
 
   return (
