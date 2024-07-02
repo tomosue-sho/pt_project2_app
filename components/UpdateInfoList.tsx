@@ -19,13 +19,14 @@ const UpdateInfoList: React.FC = () => {
     const fetchUpdates = async () => {
       try {
         const token = await getToken();
-        const response = await axios.get(`http://127.0.0.1:8000/api/update_info/?page=${currentPage}`, { // URLを修正
+        const response = await axios.get(`http://127.0.0.1:8000/api/update_info/?page=${currentPage}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
-        setUpdates(response.data.results);
-        setTotalPages(response.data.total_pages);
+        console.log('Fetched data:', response.data); // デバッグ用のログ
+        setUpdates(response.data); // 直接配列を設定
+        // totalPagesが必要ならば、それを別途取得するロジックが必要
       } catch (error) {
         console.error('Error fetching update info:', error);
       }

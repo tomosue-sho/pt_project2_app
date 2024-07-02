@@ -42,6 +42,7 @@ import StudyLogList from './components/StudyLogList';
 import TimeTableList from './components/TimeTableList';
 import ToDoItemList from './components/ToDoItemList';
 import UpdateInfoList from './components/UpdateInfoList';
+import GameQuestionList from './components/GameQuestionList';
 
 const App = () => {
   const sections = [
@@ -87,6 +88,7 @@ const App = () => {
     { key: 'TimeTable', component: <TimeTableList /> },
     { key: 'ToDoItems', component: <ToDoItemList /> },
     { key: 'UpdateInfos', component: <UpdateInfoList /> },
+    { key: 'GameQuestion', component: <GameQuestionList /> },
   ];
 
   return (
