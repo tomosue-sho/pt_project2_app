@@ -1,39 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
-import axios from 'axios';
-
-type Article = {
-  id: number;
-  title: string;
-  content: string;
-};
+// App.tsx
+import React from 'react';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import ArticleList from './components/ArticleList';
+import CategoryList from './components/CategoryList';
+import CustomUserList from './components/CustomUserList';
+import TemporaryUserList from './components/TemporaryUserList';
 
 const App = () => {
-  const [data, setData] = useState<Article[]>([]);
-
-  useEffect(() => {
-    axios.get<Article[]>('http://127.0.0.1:8000/api/articles/')
-      .then(response => {
-        setData(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
-
   return (
-    <View style={styles.container}>
-      <FlatList<Article>
-        data={data}
-        keyExtractor={item => item.id.toString()}
-        renderItem={({ item }) => (
-          <View style={styles.item}>
-            <Text style={styles.title}>{item.title}</Text>
-            <Text>{item.content}</Text>
-          </View>
-        )}
-      />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+        <Text style={styles.header}>Articles</Text>
+        <ArticleList />
+
+        <Text style={styles.header}>Categories</Text>
+        <CategoryList />
+
+        <Text style={styles.header}>Users</Text>
+        <CustomUserList />
+
+        <Text style={styles.header}>Temporary Users</Text>
+        <TemporaryUserList />
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -41,17 +30,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    padding: 16,
   },
-  item: {
-    marginBottom: 16,
-    padding: 16,
-    backgroundColor: '#f9f9f9',
-    borderRadius: 8,
-  },
-  title: {
-    fontSize: 18,
+  header: {
+    fontSize: 24,
     fontWeight: 'bold',
+    marginVertical: 10,
+    paddingHorizontal: 10,
   },
 });
 
