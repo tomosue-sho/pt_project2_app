@@ -27,6 +27,16 @@ import PostConsultationList from './components/PostConsultationList';
 import ReplyConsultationList from './components/ReplyConsultationList';
 import CategoryConsultationList from './components/CategoryConsultationList';
 import PracticalQuizQuestionList from './components/PracticalQuizQuestionList';
+import PracticalQuizUserAnswerList from './components/PracticalQuizUserAnswerList';
+import FieldList from './components/FieldList';
+import SubfieldList from './components/SubfieldList';
+import Sub2fieldList from './components/Sub2fieldList';
+import QuestionList from './components/QuestionList';
+import UserAnswerList from './components/UserAnswerList';
+import UserScoreList from './components/UserScoreList';
+import QuizSessionList from './components/QuizSessionList';
+import ColumnList from './components/ColumnList';
+import AozoraBookList from './components/AozoraBookList';
 
 const App = () => {
   const sections = [
@@ -57,6 +67,16 @@ const App = () => {
     { key: 'Reply Consultations', component: <ReplyConsultationList /> },
     { key: 'Category Consultations', component: <CategoryConsultationList /> },
     { key: 'Practical Quiz Questions', component: <PracticalQuizQuestionList /> },
+    { key: 'Practical Quiz User Answers', component: <PracticalQuizUserAnswerList /> },
+    { key: 'Fields', component: <FieldList /> },
+    { key: 'Subfields', component: <SubfieldList /> },
+    { key: 'Sub2fields', component: <Sub2fieldList /> },
+    { key: 'Questions', component: <QuestionList /> },
+    { key: 'User Answers', component: <UserAnswerList /> },
+    { key: 'User Scores', component: <UserScoreList /> },
+    { key: 'Quiz Sessions', component: <QuizSessionList /> },
+    { key: 'Columns', component: <ColumnList /> },
+    { key: 'Aozora Books', component: <AozoraBookList /> },
   ];
 
   return (
