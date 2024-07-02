@@ -1,36 +1,39 @@
+// ChoiceList.tsx
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 import axios from 'axios';
 
-// CustomUserの型定義
-interface CustomUser {
+// Choiceの型定義
+interface Choice {
   id: number;
-  nickname: string;
-  email: string;
+  choice_text: string;
+  is_correct: boolean;
+  question: number;
 }
 
-const CustomUserList = () => {
-  const [users, setUsers] = useState<CustomUser[]>([]);
+const ChoiceList = () => {
+  const [choices, setChoices] = useState<Choice[]>([]);
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/custom_users/')
+    axios.get('http://127.0.0.1:8000/api/choices/')
       .then(response => {
-        setUsers(response.data);
+        setChoices(response.data);
       })
       .catch(error => {
-        console.error('Error fetching users:', error);
+        console.error('Error fetching choices:', error);
       });
   }, []);
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={users}
+        data={choices}
         keyExtractor={item => item.id.toString()}
         renderItem={({ item }) => (
           <View style={styles.item}>
-            <Text style={styles.name}>{item.nickname}</Text>
-            <Text>{item.email}</Text>
+            <Text style={styles.choiceText}>{item.choice_text}</Text>
+            <Text style={styles.detail}>Correct: {item.is_correct ? 'Yes' : 'No'}</Text>
+            <Text style={styles.detail}>Question ID: {item.question}</Text>
           </View>
         )}
       />
@@ -48,9 +51,13 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
   },
-  name: {
+  choiceText: {
     fontWeight: 'bold',
+  },
+  detail: {
+    fontSize: 12,
+    color: '#666',
   },
 });
 
-export default CustomUserList;
+export default ChoiceList;

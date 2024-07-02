@@ -1,36 +1,35 @@
+// KokushiFieldList.tsx
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 import axios from 'axios';
 
-// CustomUserの型定義
-interface CustomUser {
+// KokushiFieldの型定義
+interface KokushiField {
   id: number;
-  nickname: string;
-  email: string;
+  name: string;
 }
 
-const CustomUserList = () => {
-  const [users, setUsers] = useState<CustomUser[]>([]);
+const KokushiFieldList = () => {
+  const [fields, setFields] = useState<KokushiField[]>([]);
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/custom_users/')
+    axios.get('http://127.0.0.1:8000/api/kokushi_fields/')
       .then(response => {
-        setUsers(response.data);
+        setFields(response.data);
       })
       .catch(error => {
-        console.error('Error fetching users:', error);
+        console.error('Error fetching fields:', error);
       });
   }, []);
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={users}
+        data={fields}
         keyExtractor={item => item.id.toString()}
         renderItem={({ item }) => (
           <View style={styles.item}>
-            <Text style={styles.name}>{item.nickname}</Text>
-            <Text>{item.email}</Text>
+            <Text>{item.name}</Text>
           </View>
         )}
       />
@@ -48,9 +47,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
   },
-  name: {
-    fontWeight: 'bold',
-  },
 });
 
-export default CustomUserList;
+export default KokushiFieldList;

@@ -1,36 +1,35 @@
+// ExamList.tsx
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 import axios from 'axios';
 
-// CustomUserの型定義
-interface CustomUser {
+// Examの型定義
+interface Exam {
   id: number;
-  nickname: string;
-  email: string;
+  year: number;
 }
 
-const CustomUserList = () => {
-  const [users, setUsers] = useState<CustomUser[]>([]);
+const ExamList = () => {
+  const [exams, setExams] = useState<Exam[]>([]);
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/custom_users/')
+    axios.get('http://127.0.0.1:8000/api/exams/')
       .then(response => {
-        setUsers(response.data);
+        setExams(response.data);
       })
       .catch(error => {
-        console.error('Error fetching users:', error);
+        console.error('Error fetching exams:', error);
       });
   }, []);
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={users}
+        data={exams}
         keyExtractor={item => item.id.toString()}
         renderItem={({ item }) => (
           <View style={styles.item}>
-            <Text style={styles.name}>{item.nickname}</Text>
-            <Text>{item.email}</Text>
+            <Text>Year: {item.year}</Text>
           </View>
         )}
       />
@@ -48,9 +47,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
   },
-  name: {
-    fontWeight: 'bold',
-  },
 });
 
-export default CustomUserList;
+export default ExamList;
