@@ -37,6 +37,11 @@ import UserScoreList from './components/UserScoreList';
 import QuizSessionList from './components/QuizSessionList';
 import ColumnList from './components/ColumnList';
 import AozoraBookList from './components/AozoraBookList';
+import QuoteList from './components/QuoteList';
+import StudyLogList from './components/StudyLogList';
+import TimeTableList from './components/TimeTableList';
+import ToDoItemList from './components/ToDoItemList';
+import UpdateInfoList from './components/UpdateInfoList';
 
 const App = () => {
   const sections = [
@@ -77,6 +82,11 @@ const App = () => {
     { key: 'Quiz Sessions', component: <QuizSessionList /> },
     { key: 'Columns', component: <ColumnList /> },
     { key: 'Aozora Books', component: <AozoraBookList /> },
+    { key: 'Quotes', component: <QuoteList /> },
+    { key: 'Study Logs', component: <StudyLogList /> },
+    { key: 'TimeTable', component: <TimeTableList /> },
+    { key: 'ToDoItems', component: <ToDoItemList /> },
+    { key: 'UpdateInfos', component: <UpdateInfoList /> },
   ];
 
   return (
