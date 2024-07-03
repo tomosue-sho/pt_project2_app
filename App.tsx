@@ -43,9 +43,11 @@ import TimeTableList from './components/TimeTableList';
 import ToDoItemList from './components/ToDoItemList';
 import UpdateInfoList from './components/UpdateInfoList';
 import GameQuestionList from './components/GameQuestionList';
+import TopScreen from './components/TopScreen';
 
 const App = () => {
   const sections = [
+    { key: 'Top', component: <TopScreen /> },
     { key: 'Articles', component: <ArticleList /> },
     { key: 'Categories', component: <CategoryList /> },
     { key: 'Users', component: <CustomUserList /> },
